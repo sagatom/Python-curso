@@ -1,0 +1,28 @@
+// automatizacion de ingreso a udemy usuario y clave // 
+
+from selenium import webdriver
+import time
+
+controlador = webdriver.Firefox(executable_path="Drivers/geckodriver.exe")
+controlador.get("https://www.udemy.com/join/login-popup/?brand_id=1522908&locale_id=2&next=%2Fsupport&return_to=https%3A%2F%2Fsupport.udemy.com%2Fhc%2Fes&timestamp=1639677325")
+time.sleep(1)
+controlador.maximize_window()
+time.sleep(1)
+
+usuario = controlador.find_element_by_id("email--1")
+clave = controlador.find_element_by_id("id_password")
+time.sleep(1)
+
+usuario.send_keys("tsagasta@gmail.com")
+time.sleep(2)
+
+clave.send_keys("#Patoruzu15")
+time.sleep(2)
+
+boton = controlador.find_element_by_id("submit-id-submit")
+boton.click()
+time.sleep(200)
+
+controlador.quit()
+
+
